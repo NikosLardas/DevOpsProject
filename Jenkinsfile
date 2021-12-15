@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        imagename = "nlardas/devopsgroupproject"
+        imagename = "elpidadardagani/devopsgroupproject"
         dockerImage = ''
         dockercredentials = 'dockerhub-credentials'
     }
