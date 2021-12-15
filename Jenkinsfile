@@ -20,5 +20,15 @@ pipeline {
                 }
             }   
         }
+        stage("Push image to registry"){
+            steps{
+                script{
+                    docker.withRegistry('',dockercredentials){
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
     }
 }
