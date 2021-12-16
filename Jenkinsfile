@@ -32,12 +32,12 @@ pipeline {
         }
         stage('Terraform Init for Second VM') {
             steps {
-                sh "/Terraform Group Project Containers VM/terraform init"
+                sh "/TerraformGroupProjectContainersVM/terraform init"
             }
         }
         stage('Terraform Apply for Second VM') {
            steps {
-                sh "/Terraform Group Project Containers VM/terraform apply -refresh-only -auto-approve"
+                sh "/TerraformGroupProjectContainersVM/terraform apply -refresh-only -auto-approve"
             }
         }
     }
