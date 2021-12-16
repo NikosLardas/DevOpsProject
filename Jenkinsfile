@@ -50,7 +50,7 @@ pipeline {
         stage('Terraform Apply for Second VM') {
            steps {
                 dir('TerraformGroupProjectContainersVM') {
-                    sh "terraform apply -refresh-only -auto-approve"
+                    sh "terraform apply -auto-approve"
                 }
             }      
         }
