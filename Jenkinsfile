@@ -32,7 +32,8 @@ pipeline {
         }
         stage('Terraform Init for Second VM') {
             steps {
-                sh "/TerraformGroupProjectContainersVM/terraform init"
+                sh "cd /TerraformGroupProjectContainersVM"
+                sh "terraform init"
             }
         }
         stage('Terraform Apply for Second VM') {
