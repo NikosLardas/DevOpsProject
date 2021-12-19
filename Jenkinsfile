@@ -52,7 +52,7 @@ pipeline {
         stage('Execute Ansible Playbook') {
             steps {
                 script {
-                    ansiblePlaybook credentialsId: 'ansible-credential', playbook: '/AnsibleGroupProject/devops-group-project-playbook'
+                    ansiblePlaybook credentialsId: 'ansible-credential', playbook: 'AnsibleGroupProject/devops-group-project-playbook'
                 }
             }
         }
