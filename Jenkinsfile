@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        imagename = "nlardas/devopsgroupproject"
+        imagename = "elpidadardagani/devopsgroupproject"
         dockerImage = ''
         dockercredentials = 'dockerhub-credentials'
     }
@@ -36,7 +36,7 @@ pipeline {
                 //    withCredentials([azureServicePrincipal('azure-credentials')]) {
                 //    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID'
                 //   }
-                   sh "az login -u nlardas2@athtech.gr -p Larry1829"
+                   sh "az login -u edardagani2@athtech.gr -p e26519982!"
                 //}
             }
         }
