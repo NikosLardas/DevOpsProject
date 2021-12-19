@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        imagename = "elpidadardagani/devopsgroupproject"
+        imagename = "nlardas/devopsgroupproject"
         dockerImage = ''
         dockercredentials = 'dockerhub-credentials'
     }
@@ -32,12 +32,7 @@ pipeline {
         }
         stage("Azure Login") {
             steps{
-                //script{
-                //    withCredentials([azureServicePrincipal('azure-credentials')]) {
-                //    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID'
-                //   }
-                   sh "az login -u edardagani2@athtech.gr -p e26519982!"
-                //}
+                sh "az login -u nlardas2@athtech.gr -p Larry1829"
             }
         }
         stage('Terraform Init for Second VM') {
