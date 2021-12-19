@@ -3,7 +3,8 @@
 #and start the containers with any configurations needed
  
 - name: DevOps Group Project Playbook
-  hosts: all
+  hosts: 40.112.93.237
+  become: true
  
   # tasks:
   #   - name: Run Docker container using our application docker image
@@ -17,7 +18,7 @@
   #       ports:
   #         - "8080:8080"
 
-    tasks:
+  tasks:
    - name: install packages
      package:
        name: nginx
