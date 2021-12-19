@@ -5,6 +5,7 @@
 - name: DevOps Group Project Playbook
   hosts: 40.112.93.237
   become: true
+  gather_facts: no
  
   # tasks:
   #   - name: Run Docker container using our application docker image
