@@ -1,0 +1,26 @@
+---
+#Ansible Playbook to Install Docker, download the appropriate images (Application & MySQL) 
+#and start the containers with any configurations needed
+ 
+#- import_playbook: build-push.yaml
+ 
+- name: DevOps Group Project Playbook
+  hosts: 40.112.93.237
+ 
+  # tasks:
+  #   - name: Run Docker container using simple-docker-image
+  #     docker_container:
+  #       name: simple-docker-container
+  #       image: nlardas/devopsgroupproject:latest
+  #       state: started
+  #       recreate: yes
+  #       detach: true
+  #       pull: yes
+  #       ports:
+  #         - "8888:8080"
+
+    tasks:
+   - name: install packages
+     package:
+       name: nginx
+       state: latest
