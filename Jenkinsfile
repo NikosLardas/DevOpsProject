@@ -32,7 +32,7 @@ pipeline {
         }
         stage("Azure Login") {
             steps{
-                sh "az login -u nlardas2@athtech.gr -p Larry1829"
+                sh "az login -u nlardas2@athtech.gr -p DevOpsProject21"
             }
         }
         stage('Terraform Init for Second VM') {
