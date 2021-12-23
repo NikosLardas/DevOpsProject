@@ -52,9 +52,10 @@ pipeline {
         stage('Execute Ansible Playbook') {
             steps {
                 script {
-                    ansiblePlaybook credentialsId: 'ansible-credential', inventory: 'AnsibleGroupProject/inventory.yml', playbook: 'AnsibleGroupProject/devops-group-project-playbook.yml'
+                    ansiblePlaybook inventory: 'AnsibleGroupProject/inventory.yml', playbook: 'AnsibleGroupProject/devops-group-project-playbook.yml'
                 }
             }
         }
     }
 }
+//credentialsId: 'ansible-credential',
