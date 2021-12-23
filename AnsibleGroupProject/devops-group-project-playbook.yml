@@ -6,7 +6,12 @@
   hosts: 40.112.93.237
   become: true
   gather_facts: no
- 
+
+  tasks:
+   - name: install packages
+     package:
+       name: nginx
+       state: latest
   # tasks:
   #   - name: Run Docker container using our application docker image
   #     docker_container:
@@ -18,9 +23,3 @@
   #       pull: yes
   #       ports:
   #         - "8080:8080"
-
-  tasks:
-   - name: install packages
-     package:
-       name: nginx
-       state: latest
