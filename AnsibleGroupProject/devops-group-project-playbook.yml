@@ -26,9 +26,9 @@
        ports:
         - "3306:3306"
        env:
-         MYSQL_USER: root
-         MYSQL_PASSWORD: AthTechDevOps
-    - name: Run Docker container using our application docker image
+        MYSQL_USER: root
+        MYSQL_PASSWORD: AthTechDevOps
+   - name: Run Docker container using our application docker image
       docker_container:
        name: application-container
        image: nlardas/devopsgroupproject:latest
