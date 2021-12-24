@@ -7,13 +7,6 @@
   become: true
   gather_facts: no
 
-  install:
-    # Install docker
-    - pip install docker
-
-    # Check docker version
-    - docker --version
-
   tasks:
    - name: Run Docker container using the MySQL docker image
      docker_container:
@@ -38,3 +31,9 @@
        pull: yes
        ports:
         - "8080:8080"
+  #
+  #  - name: Install Docker
+  #    apt:
+  #     name: "docker-ce"
+  #     state: present
+  #     force_apt_get: "yes"
