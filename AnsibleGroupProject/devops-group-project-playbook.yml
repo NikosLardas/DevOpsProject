@@ -16,7 +16,7 @@
 
   tasks:
    - name: Run Docker container using the MySQL docker image
-      docker_container:
+     docker_container:
        name: mysql_server
        image: mysql/mysql-server:latest
        state: started
@@ -29,7 +29,7 @@
         MYSQL_USER: root
         MYSQL_PASSWORD: AthTechDevOps
    - name: Run Docker container using our application docker image
-      docker_container:
+     docker_container:
        name: application-container
        image: nlardas/devopsgroupproject:latest
        state: started
