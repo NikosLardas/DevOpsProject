@@ -6,8 +6,6 @@
   hosts: 40.112.93.237
   become: true
   gather_facts: no
-  vars:
-   ansible_python_interpreter: /usr/bin/python3
 
   tasks:
    - name: Run Docker container using the MySQL docker image
@@ -39,3 +37,5 @@
   #     name: "docker-ce"
   #     state: present
   #     force_apt_get: "yes"
+  #  vars:
+  # ansible_python_interpreter: /usr/bin/python3
