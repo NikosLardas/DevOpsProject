@@ -41,11 +41,11 @@
           MYSQL_ROOT_PASSWORD: AthTechDevOps
         networks:
           - name: devopsnetwork
-    - name: Run Docker container using our application docker image
+    - name: Create Docker container using our application docker image
       docker_container:
         name: application_container
         image: nlardas/devopsgroupproject:latest
-        state: started
+        state: created
         recreate: yes
         detach: true
         pull: yes
@@ -53,3 +53,5 @@
           - 8080:8080
         networks:
           - name: devopsnetwork
+    - name: Start the Application
+      command: docker start application_container
