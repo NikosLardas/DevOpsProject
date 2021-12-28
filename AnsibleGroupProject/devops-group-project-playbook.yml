@@ -10,9 +10,9 @@
   # ansible_python_interpreter: /usr/bin/python3
 
   tasks:
-    - name: Install pip3
+    - name: Install pip
       package:
-        name: python3-pip
+        name: python-pip
         state: present
     - name: Install docker
       package:
@@ -25,30 +25,40 @@
     - name: Start docker service
       service:
         name: docker
-        state: started
+        state: started     
     - name: Run Docker container using the MySQL docker image
-      command: docker run -d -p 3306:3306 --name mysql_server -e MYSQL_ROOT_PASSWORD=AthTechDevOps mysql:latest
+      docker_container:
+        name: mysql_server
+        image: mysql:latest
+        state: started
+        recreate: yes
+        detach: true
+        pull: yes
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: AthTechDevOps
     - name: Run Docker container using our application docker image
-      command: docker run -d -p 8080:8080 --name application_container nlardas/devopsgroupproject:latest             
+      docker_container:
+        name: application_container
+        image: nlardas/devopsgroupproject:latest
+        state: started
+        recreate: yes
+        detach: true
+        pull: yes
+        ports:
+          - 8080:8080
+    - name: Create the network
+      docker_network:
+        name: devopsnetwork
+    - name: Add containers to network
+      docker_network:
+        name: devopsnetwork
+        connected:
+          - mysql_server
+          - application_container
+        appends: yes
     # - name: Run Docker container using the MySQL docker image
-    #   docker_container:
-    #     name: mysql_server
-    #     image: mysql:latest
-    #     state: started
-    #     recreate: yes
-    #     detach: true
-    #     pull: yes
-    #     ports:
-    #       - 3306:3306
-    #     env:
-    #       MYSQL_ROOT_PASSWORD: AthTechDevOps
+    #   command: docker run -d -p 3306:3306 --name mysql_server -e MYSQL_ROOT_PASSWORD=AthTechDevOps mysql:latest
     # - name: Run Docker container using our application docker image
-    #   docker_container:
-    #     name: application_container
-    #     image: nlardas/devopsgroupproject:latest
-    #     state: started
-    #     recreate: yes
-    #     detach: true
-    #     pull: yes
-    #     ports:
-    #       - 8080:8080
+    #   command: docker run -d -p 8080:8080 --name application_container nlardas/devopsgroupproject:latest 
