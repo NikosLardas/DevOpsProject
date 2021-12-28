@@ -45,7 +45,7 @@
       docker_container:
         name: application_container
         image: nlardas/devopsgroupproject:latest
-        state: created
+        state: present
         recreate: yes
         detach: true
         pull: yes
