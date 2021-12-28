@@ -54,4 +54,4 @@
         networks:
           - name: devopsnetwork
     - name: Start the Application
-      command: docker start application_container
+      command: sudo docker start application_container
