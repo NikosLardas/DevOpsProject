@@ -26,29 +26,29 @@
       service:
         name: docker
         state: started                      
-   - name: Run Docker container using the MySQL docker image
-     docker_container:
-       name: mysql_server
-       image: mysql/mysql-server:latest
-       state: started
-       recreate: yes
-       detach: true
-       pull: yes
-       ports:
-        - "3306:3306"
-       env:
-        MYSQL_USER: root
-        MYSQL_PASSWORD: AthTechDevOps
-   - name: Run Docker container using our application docker image
-     docker_container:
-       name: application-container
-       image: nlardas/devopsgroupproject:latest
-       state: started
-       recreate: yes
-       detach: true
-       pull: yes
-       ports:
-        - "8080:8080"
+    - name: Run Docker container using the MySQL docker image
+      docker_container:
+        name: mysql_server
+        image: mysql/mysql-server:latest
+        state: started
+        recreate: yes
+        detach: true
+        pull: yes
+        ports:
+         - "3306:3306"
+        env:
+         MYSQL_USER: root
+         MYSQL_PASSWORD: AthTechDevOps
+    - name: Run Docker container using our application docker image
+      docker_container:
+        name: application-container
+        image: nlardas/devopsgroupproject:latest
+        state: started
+        recreate: yes
+        detach: true
+        pull: yes
+        ports:
+         - "8080:8080"
   #
   #  - name: Install Docker
   #    apt:
