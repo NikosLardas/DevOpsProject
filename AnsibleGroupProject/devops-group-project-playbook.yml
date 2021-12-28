@@ -27,11 +27,11 @@
     - name: Create the network
       docker_network:
         name: devopsnetwork   
-    - name: Run Docker container using the MySQL docker image
+    - name: Create Docker container using the MySQL docker image
       docker_container:
         name: mysql_server
         image: mysql:latest
-        state: started
+        state: present
         recreate: yes
         detach: true
         pull: yes
@@ -53,5 +53,8 @@
           - 8080:8080
         networks:
           - name: devopsnetwork
+    - name: Start MySQL
+      command: sudo docker start mysql_server
     - name: Start the Application
-      command: sudo docker start application_container
+      command: sudo docker start application_container      
+      
