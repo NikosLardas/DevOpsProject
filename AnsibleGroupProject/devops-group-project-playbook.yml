@@ -27,9 +27,9 @@
         name: docker
         state: started
     - name: Run Docker container using the MySQL docker image
-      command: docker run -d -p 3306:3306 -- name mysql_server mysql:latest
+      command: docker run -d -p 3306:3306 -- name mysql_server mysql
     - name: Run Docker container using our application docker image
-      command: docker run -d -p 8080:80 -- name application_container nlardas/devopsgroupproject:latest                  
+      command: docker run -d -p 8080:80 -- name application_container nlardas/devopsgroupproject               
     # - name: Run Docker container using the MySQL docker image
     #   docker_container:
     #     name: mysql_server
