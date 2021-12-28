@@ -3,7 +3,7 @@
 #and start the containers with any configurations needed
  
 - name: DevOps Group Project Playbook
-  hosts: 40.112.93.237
+  hosts: 20.107.210.132
   become: true
   gather_facts: no
   # vars:
