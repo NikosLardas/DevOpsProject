@@ -31,7 +31,7 @@
       docker_container:
         name: mysql_server
         image: mysql:latest
-        state: present
+        state: started
         recreate: yes
         detach: true
         pull: yes
@@ -51,10 +51,15 @@
         pull: yes
         ports:
           - 8080:8080
-        networks:
-          - name: devopsnetwork
-    - name: Start MySQL
-      command: sudo docker start mysql_server
+    - name: Add application to network
+      docker_network:
+        name: devopsnetwork
+        connected:
+          - application_container
+        appends: yes
     - name: Start the Application
-      command: sudo docker start application_container      
-      
+      command: docker start application_container      
+      #  networks:
+      #    - name: devopsnetwork
+      # - name: Start MySQL
+      # command: sudo docker start mysql_server
