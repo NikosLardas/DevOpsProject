@@ -1,6 +1,6 @@
 ---
-#Ansible Playbook to Install Docker, download the appropriate images (Application & MySQL) 
-#and start the containers with any configurations needed
+#Ansible Playbook to Install pip, Docker, Python docker sdk, start the docker service, create the docker network,
+#configure and start our Docker containers with any configurations needed, providing a 10 second timeout in between to make sure the first container is fully operational
  
 - name: DevOps Group Project Playbook
   hosts: 20.107.210.132
