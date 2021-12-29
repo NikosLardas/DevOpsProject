@@ -51,7 +51,7 @@
       register: result
       until: not result.rc
       retries: 10
-      delay: 10
+      delay: 30
     - name: Create Docker container using our application docker image
       docker_container:
         name: application_container
