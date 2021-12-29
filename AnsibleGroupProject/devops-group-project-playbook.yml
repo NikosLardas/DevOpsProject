@@ -41,9 +41,17 @@
           MYSQL_ROOT_PASSWORD: AthTechDevOps
         networks:
           - name: devopsnetwork
-    - name: Sleep for 10 seconds to allow MySQL to start
-      wait_for:
-        timeout: 10
+    # - name: Sleep for 10 seconds to allow MySQL to start
+    #   wait_for:
+    #     timeout: 10
+    - name: Wait for MySQL
+      command: >
+        docker exec {{ mysql_server|quote }}
+        mysqladmin ping -u{{ DevOpsApplicationVM|quote }} -p{{ GroupProject21ApplicationVm|quote }}
+      register: result
+      until: not result.rc
+      retries: 10
+      delay: 10
     - name: Create Docker container using our application docker image
       docker_container:
         name: application_container
