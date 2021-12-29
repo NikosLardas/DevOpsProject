@@ -46,8 +46,8 @@
     #     timeout: 10
     - name: Wait for MySQL
       command: >
-        docker exec {{ mysql_server|quote }}
-        mysqladmin ping -u{{ DevOpsApplicationVM|quote }} -p{{ GroupProject21ApplicationVm|quote }}
+        docker exec mysql_server|quote
+        mysqladmin ping -u DevOpsApplicationVM|quote -p GroupProject21ApplicationVm|quote
       register: result
       until: not result.rc
       retries: 10
